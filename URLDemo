@@ -1,0 +1,14 @@
+import java.net.*;
+
+class URLDemka {
+	public static void main(String[] args) throws MalformedURLException {
+		URL ur = new URL("http://www.HerbSchildt.com/Articles");
+
+		System.out.println("Протокол: " + ur.getProtocol());
+		System.out.println("Порт: " + ur.getPort());
+
+		System.out.println("Хост: " + ur.getHost());
+		System.out.println("Файл: " + ur.getFile());
+		System.out.println("Полная форма: " + ur.toExternalForm());
+	}	
+}
