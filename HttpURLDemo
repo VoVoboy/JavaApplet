@@ -1,0 +1,30 @@
+import java.net.*;
+import java.io.*;
+import java.util.*;
+
+class HttpURLDemo {
+	public static void main(String[] args) throws Exception {
+		URL hp = new URL("http://www.google.com");
+		HttpURLConnection hpCon = (HttpURLConnection) hp.openConnection();
+
+		//вывести метод запроса
+		System.out.println("Метод запроса: " + hpCon.getRequestMethod());
+
+		//вывести код ответа
+		System.out.println("Код ответа: " + hpCon.getResponseCode());
+
+
+		//вывести ответное сообщение
+		System.out.println("Ответное сообщение: " + hpCon.getResponseMessage());
+
+		//получить список полей и множество ключей из загаловка
+		Map<String, List<String>> hdrMap = hpCon.getHeaderFields();
+		Set<Stirng> hdrField = hdrMap.keySet();
+		System.out.println("\nДалее следует заголовок: ");
+
+		//вывести все ключи и значения из заголовка
+		for(String k : hdrField) {
+			System.out.println("Ключ: " + k + " Значение: " + hdrMap.get(k));
+		}
+	}
+}
